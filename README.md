@@ -1,2 +1,2 @@
 # firebaseHelloWorld
-playing around with Firebase
+#Instructions - start with http server

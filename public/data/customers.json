@@ -1,0 +1,31 @@
+[{
+  "id": 1,
+  "first_name": "Local",
+  "last_name": "Ford",
+  "email": "jford0@qq.com",
+  "country": "Sweden"
+}, {
+  "id": 2,
+  "first_name": "Frank",
+  "last_name": "West",
+  "email": "fwest1@sphinn.com",
+  "country": "Botswana"
+}, {
+  "id": 3,
+  "first_name": "Ruby",
+  "last_name": "Stewart",
+  "email": "rstewart2@dion.ne.jp",
+  "country": "Russia"
+}, {
+  "id": 4,
+  "first_name": "Norma",
+  "last_name": "Fowler",
+  "email": "nfowler3@chicagotribune.com",
+  "country": "Indonesia"
+}, {
+  "id": 5,
+  "first_name": "Phillip",
+  "last_name": "Parker",
+  "email": "pparker4@un.org",
+  "country": "Greece"
+}]
