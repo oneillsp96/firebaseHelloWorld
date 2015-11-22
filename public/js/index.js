@@ -36,12 +36,6 @@ $scope.gridApi;
   $scope.gridOptions.onRegisterApi = function (gridApi) {
     $scope.gridApi = gridApi;
 
-    // gridApi.selection.on.rowSelectionChanged($scope, function (row) { 
-    //   $scope.deleteCustomer = function(row){
-    //     $scope.customers.$remove(row.entity)
-    //   }  
-    // });
-
     gridApi.edit.on.afterCellEdit($scope, function (rowEntity, colDef, newValue, oldValue) {
       $scope.customers.$save(rowEntity);
       // console.log(rowEntity) 
@@ -50,7 +44,6 @@ $scope.gridApi;
 
   $scope.deleteSelectedCustomers = function () {
     angular.forEach($scope.gridApi.selection.getSelectedRows(), function (row) {
-
       $scope.customers.$remove(row);
     });
   }
