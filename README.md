@@ -3,9 +3,11 @@
 
 # Instructions 
 
-git clone
-npm install - grabs dependencies
-npm start - serves content on localhost:8080
+*git clone
+
+*npm install - grabs dependencies
+
+*npm start - serves content on localhost:8080
 
 
 
