@@ -6,6 +6,10 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
+   "dependencies": {
+        "express": "~4.0.0",
+        "mongoose": "~3.6.13"
+    },
   "author": "Sean O'Neill",
   "license": "MIT"
 }

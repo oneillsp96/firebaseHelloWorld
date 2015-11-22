@@ -1,2 +1,5 @@
 # firebaseHelloWorld
-#Instructions - start with http server
+# Instructions 
+
+# npm install
+# npm start - serves content (defaults to run server.js)

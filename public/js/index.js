@@ -1,58 +1,61 @@
-var app = angular.module('app', ['firebase']);
+var app = angular.module('app', ['firebase', 'ui.grid', 'ui.grid.edit', 'ui.grid.selection']);
 
-app.controller('customerController', ['$scope', 'customerService', '$firebaseArray', function ($scope, customerService, $firebaseArray) {
-  var dataSource = "remote";
-  $scope.customers;
-
-  // if (dataSource = "local") {
-
-  //   customerService.getAllCustomers()
-  //     .success(function (allCustomers) {
-  //       $scope.customers = allCustomers;
-  //     })
-  //     .error(function (e) {
-  //       console.log('error' + e);
-  //     })
-  // } else if (dataSource = "remote") {
-  //   $scope.customers = customerService.getFirebaseData();
-  // }
-  
-  var ref = new Firebase("https://glaring-heat-7252.firebaseio.com");
+app.controller('customerController', ['$scope', '$firebaseArray', function ($scope, $firebaseArray) {
+$scope.gridApi;
+  var ref = new Firebase("https://glaring-heat-7252.firebaseio.com/customers");
   $scope.customers = $firebaseArray(ref);
-
-  $scope.addSean = function () {
+  $scope.addCustomer = function () {
     $scope.customers.$add({
-      "id": 1,
-      "first_name": "Sean",
-      "last_name": "ONeill",
-      "email": "seanemail@email.com",
-      "country": "USA USA USA"
+      "first_name": $scope.firstName,
+      "last_name": $scope.lastName,
+      "email": $scope.email,
+      "country": $scope.country
     });
+    $scope.firstName = "";
+    $scope.lastName = "";
+    $scope.email = "";
+    $scope.country = "";
+  };
+
+  $scope.gridOptions = {
+    data: 'customers',
+    selectionRowHeaderWidth: 35,
+    rowHeight: 35,
+    enableCellSelection: true,
+    enableRowSelection: true,
+    enableCellEdit: true,
+    columnDefs: [
+      { field: 'first_name', displayName: 'First Name', enableCellEdit: true },
+      { field: 'last_name', displayName: 'Last Name', enableCellEdit: true },
+      { field: 'email', displayName: 'Email', enableCellEdit: true },
+      { field: 'country', displayName: 'Country', enableCellEdit: true }
+    ]
   };
 
 
+  $scope.gridOptions.onRegisterApi = function (gridApi) {
+    $scope.gridApi = gridApi;
+
+    // gridApi.selection.on.rowSelectionChanged($scope, function (row) { 
+    //   $scope.deleteCustomer = function(row){
+    //     $scope.customers.$remove(row.entity)
+    //   }  
+    // });
+
+    gridApi.edit.on.afterCellEdit($scope, function (rowEntity, colDef, newValue, oldValue) {
+      $scope.customers.$save(rowEntity);
+      // console.log(rowEntity) 
+    });
+  };
+
+  $scope.deleteSelectedCustomers = function () {
+    angular.forEach($scope.gridApi.selection.getSelectedRows(), function (row) {
+
+      $scope.customers.$remove(row);
+    });
+  }
+
 }]);
-
-
-app.service('customerService', ['$http', '$firebaseObject', function ($http, $firebaseArray) {
-  var customerService = {},
-    ref = new Firebase("https://glaring-heat-7252.firebaseio.com");
-
-
-  customerService.getAllCustomers = function () {
-    return $http.get('data/customers.json')
-  }
-
-  customerService.getFirebaseData = function () {
-    return $firebaseArray(ref);
-  }
-
-
-
-
-
-  return customerService;
-}])
 
 
   
