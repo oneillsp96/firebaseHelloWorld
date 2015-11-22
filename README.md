@@ -1,4 +1,4 @@
-![pic](https://raw.githubusercontent.com/angular-ui/angular-ui.github.com/master/logo/UI_Shield_Grid.png)
+![pic](http://1.bp.blogspot.com/-BBNLSi5xGP8/UgySDf9d9tI/AAAAAAAAGlk/2dsglp3qv6A/s1600/ng-ui.png)
 ![pic](http://cdn.stackhive.com/direct/blog/img/firebase_logo.png)
 
 # Instructions 
