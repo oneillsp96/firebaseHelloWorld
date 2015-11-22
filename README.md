@@ -11,6 +11,8 @@
 
 * get a firebase account (free) and replace my firebase connection string with your own
 
+* seed your empty database with the "add customer" input fields
+
 # TODO
 =======
 * styles
