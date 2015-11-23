@@ -1,6 +1,47 @@
-.gridStyle {
-    border: 1px solid rgb(212,212,212);
-    width: 50%; 
-    height: 60vh;
+body, h1, h2, h3, h4, h5, h6, p div, form{
+  font-family: 'Raleway', sans-serif;
+}
+.mainHeader{
+  text-align: center;
+}
+
+.flex-container {
+    display: -webkit-flex;
+    display: flex;
+    align-items: flex-start;
+    width:90%;
+    height: 70vh;
     margin: 0 auto;
 }
+
+.flex-item-left {
+    background-color: #C5EFF7;
+    width: 20%;
+    height: 100%;
+    border: 1px solid rgb(212,212,212);
+    
+}
+.flex-item-right {
+    width: 80%;
+    height: 100%;
+}
+.flex-item-left form{
+  margin-top: 10px;
+}
+.flex-item-left form:nth-child(1), .delete-btn {
+  margin-left:7px;
+}
+
+.gridStyle {
+    border: 1px solid rgb(212,212,212);
+    height: 100%;
+    width: 100%;
+    margin: 0;
+}
+
+/*.ui-grid-row:nth-child(odd) .ui-grid-cell{
+  background-color: #3498db;
+}
+.ui-grid-row:nth-child(even) .ui-grid-cell {
+  background-color: #ecf0f1;
+}*/

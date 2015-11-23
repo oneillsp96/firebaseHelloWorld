@@ -4,35 +4,52 @@
 <head>
   <meta charset="UTF-8">
   <title>Badger App</title>
-  <link rel="stylesheet" href="css/style.css">
   <link rel="stylesheet" href="bower_components/angular-ui-grid/ui-grid.min.css">
+  <link href='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css' rel='stylesheet' type='text/css'>
+  <link rel="stylesheet" href="css/style.css" type='text/css'>
+  <link href='https://fonts.googleapis.com/css?family=Raleway' rel='stylesheet' type='text/css'>
 
 </head>
 
 <body>
   <div ng-app="app">
     <div ng-controller="customerController">
+      <h1 class="mainHeader">Sasquatch Hunters Club Members</h1>
 
-      <div class="gridStyle" ui-grid="gridOptions" ui-grid-resize-columns ui-grid-edit ui-grid-selection></div>
-      
-      <form ng-submit="addCustomer()">
-        first name:
-        <input type="text" ng-model="firstName">
-        <br/>
-        <br/> last name:
-        <input type="text" ng-model="lastName">
-        <br/>
-        <br/> email:
-        <input type="text" ng-model="email">
-        <br/>
-        <br/> country:
-        <input type="text" ng-model="country">
-        <br/>
-        <br/>
-        <button class="btn" type="submit">Add Customer</button>
-        <button ng-click="deleteSelectedCustomers()" class="btn" type="button">Delete Selected Customers</button>
-      </form>
-      
+      <div class="flex-container">
+
+        <div class="flex-item-left">
+          <form ng-submit="addCustomer()">
+            <div class="form-group">
+              First Name:
+              <br/>
+              <input type="text" ng-model="firstName" class="form-control">
+             
+              <br/> Last Name:
+              <br/>
+              <input type="text" ng-model="lastName" class="form-control">
+              
+              <br/> Email:
+              <br/>
+              <input type="text" ng-model="email" class="form-control">
+             
+              <br/> Country:
+              <br/>
+              <input type="text" ng-model="country" class="form-control">
+              
+              <br/>
+              <button class="btn btn-default" type="submit">Add Customer</button>
+            </div>
+          </form>
+          <br/>
+          <button ng-click="deleteSelectedCustomers()" class="delete-btn btn btn-default" type="button">Delete Selected Customers</button>
+        </div>
+
+        <div class="flex-item-right">
+          <div class="gridStyle" ui-grid="gridOptions" ui-grid-resize-columns ui-grid-auto-resize ui-grid-edit ui-grid-selection></div>
+        </div>
+
+      </div>
     </div>
   </div>
 
@@ -40,11 +57,6 @@
   <script src="https://cdn.firebase.com/js/client/2.2.4/firebase.js"></script>
   <script src="https://cdn.firebase.com/libs/angularfire/1.1.3/angularfire.min.js"></script>
   <script src="bower_components/angular-ui-grid/ui-grid.min.js"></script>
-
-  <script src=""></script>
-  <script src=""></script>
-  <script src=""></script>
-  <script src=""></script>
   <script src="js/index.js"></script>
 
 </body>

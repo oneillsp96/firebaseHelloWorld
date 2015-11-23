@@ -1,7 +1,8 @@
-var app = angular.module('app', ['firebase', 'ui.grid', 'ui.grid.edit', 'ui.grid.selection']);
+var app = angular.module('app', ['firebase', 'ui.grid', 'ui.grid.edit', 'ui.grid.selection', 'ui.grid.autoResize']);
 
 app.controller('customerController', ['$scope', '$firebaseArray', function ($scope, $firebaseArray) {
 $scope.gridApi;
+$scope.showAddForm = false;
   var ref = new Firebase("https://glaring-heat-7252.firebaseio.com/customers");
   $scope.customers = $firebaseArray(ref);
   $scope.addCustomer = function () {
@@ -19,8 +20,12 @@ $scope.gridApi;
 
   $scope.gridOptions = {
     data: 'customers',
+    showGridFooter: false,
     selectionRowHeaderWidth: 35,
-    rowHeight: 35,
+    rowHeight: 45,
+    enableVerticalScrollbar: 2,
+    enableHorizontalScrollbar: 0,
+    //enableScrollbars: false, //uiGridConstants.scrollbars.NEVER
     enableCellSelection: true,
     enableRowSelection: true,
     enableCellEdit: true,
